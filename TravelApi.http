@@ -1,0 +1,42 @@
+@TravelApi_HostAddress = http://localhost:5180
+@TripId = 00000000-0000-0000-0000-000000000000
+
+GET {{TravelApi_HostAddress}}/api/trips/
+Accept: application/json
+
+###
+
+POST {{TravelApi_HostAddress}}/api/trips/
+Content-Type: application/json
+
+{
+	"name": "Weekend in Jerusalem",
+	"destination": "Jerusalem",
+	"startDate": "2026-11-01",
+	"endDate": "2026-11-03",
+	"description": "A short city trip",
+	"budget": 1200
+}
+
+###
+
+GET {{TravelApi_HostAddress}}/api/trips/{{TripId}}
+Accept: application/json
+
+###
+
+PUT {{TravelApi_HostAddress}}/api/trips/{{TripId}}
+Content-Type: application/json
+
+{
+	"name": "Updated Jerusalem trip",
+	"destination": "Jerusalem",
+	"startDate": "2026-11-01",
+	"endDate": "2026-11-04",
+	"description": "An extended city trip",
+	"budget": 1500
+}
+
+###
+
+DELETE {{TravelApi_HostAddress}}/api/trips/{{TripId}}
