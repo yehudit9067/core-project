@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ניהול טיולים</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <main class="container">
+        <h1>טיולים</h1>
+
+        <form id="trip-form" class="card">
+            <input type="hidden" id="trip-id" />
+
+            <div class="grid">
+                <label>
+                    שם הטיול
+                    <input type="text" id="name" required />
+                </label>
+
+                <label>
+                    יעד
+                    <input type="text" id="destination" required />
+                </label>
+
+                <label>
+                    תאריך התחלה
+                    <input type="date" id="startDate" required />
+                </label>
+
+                <label>
+                    תאריך סיום
+                    <input type="date" id="endDate" required />
+                </label>
+
+                <label>
+                    תיאור
+                    <input type="text" id="description" />
+                </label>
+
+                <label>
+                    תקציב
+                    <input type="number" id="budget" min="0" step="1" />
+                </label>
+            </div>
+
+            <div class="actions">
+                <button type="submit" id="submit-btn" class="primary">הוספה</button>
+                <button type="button" id="cancel-btn" class="secondary" hidden>ביטול</button>
+            </div>
+
+            <p id="message" class="message" role="status"></p>
+        </form>
+
+        <table class="trips">
+            <thead>
+                <tr>
+                    <th>שם</th>
+                    <th>יעד</th>
+                    <th>מתאריך</th>
+                    <th>עד תאריך</th>
+                    <th>תיאור</th>
+                    <th>תקציב</th>
+                    <th>פעולות</th>
+                </tr>
+            </thead>
+            <tbody id="trips-body">
+                <tr>
+                    <td colspan="7" class="empty">טוען נתונים…</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <template id="trip-row-template">
+        <tr>
+            <td data-field="name"></td>
+            <td data-field="destination"></td>
+            <td data-field="startDate"></td>
+            <td data-field="endDate"></td>
+            <td data-field="description"></td>
+            <td data-field="budget"></td>
+            <td class="row-actions">
+                <button type="button" class="secondary" data-action="edit">עריכה</button>
+                <button type="button" class="danger" data-action="delete">מחיקה</button>
+            </td>
+        </tr>
+    </template>
+
+    <script src="js/site.js"></script>
+</body>
+</html>
